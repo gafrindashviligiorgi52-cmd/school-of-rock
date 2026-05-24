@@ -1,43 +1,43 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,600;0,800;1,300&display=swap');
 
 :root {
-  --bg-main: #0a0b10;
+  --bg: #09090f;
   --accent: #ff0055;
-  --glass: rgba(255, 255, 255, 0.03);
-  --border: rgba(255, 255, 255, 0.08);
+  --accent-dim: rgba(255, 0, 85, 0.12);
+  --glass: rgba(255,255,255,0.04);
+  --border: rgba(255,255,255,0.09);
+  --text-muted: #6b7080;
+  --radius-sm: 16px;
+  --radius-md: 22px;
+  --radius-lg: 28px;
 }
 
-/* ─── RESET ─── */
-*, *::before, *::after {
-  box-sizing: border-box;
-}
+*, *::before, *::after { box-sizing: border-box; }
 
 body {
   margin: 0;
   padding: 0;
   font-family: 'Plus Jakarta Sans', sans-serif;
-  background-color: var(--bg-main);
-  color: #ffffff;
+  background: var(--bg);
+  color: #fff;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
-}
+a { text-decoration: none; color: inherit; }
 
-/* ════════════════════════════
+/* ═══════════════════════
    HERO
-════════════════════════════ */
+═══════════════════════ */
 .heroSection {
   position: relative;
-  width: 100vw;
-  height: 85vh;
+  width: 100%;
+  height: 100svh;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
-  padding: 20px 16px;
+  justify-content: space-between;
+  padding: 20px 16px 32px;
   overflow: hidden;
 }
 
@@ -48,294 +48,273 @@ a {
   height: 100%;
   object-fit: cover;
   z-index: 1;
-  filter: brightness(0.45) contrast(1.1);
+  filter: brightness(0.4) contrast(1.15) saturate(0.8);
 }
 
 .heroSection::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, rgba(10,11,16,0.25), rgba(10,11,16,1));
+  background:
+    linear-gradient(to top, var(--bg) 0%, transparent 40%),
+    linear-gradient(to bottom, rgba(9,9,15,0.5) 0%, transparent 30%);
   z-index: 2;
 }
 
-/* Header pill */
 .headerGlass {
   position: relative;
   z-index: 3;
   display: flex;
   align-items: center;
-  gap: 12px;
-  background: rgba(10, 11, 16, 0.65);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  padding: 10px 20px;
+  gap: 10px;
+  background: rgba(9,9,15,0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  padding: 10px 18px 10px 10px;
   border-radius: 100px;
   border: 1px solid var(--border);
 }
 
 .headerLogo {
-  width: 36px;
-  height: 36px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid var(--accent);
+  border: 1.5px solid var(--accent);
 }
 
 .mainTitle {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 3px;
   margin: 0;
-  background: linear-gradient(to right, #fff, #b0b5c6);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #fff;
 }
 
-/* Center text */
 .heroCenterText {
   position: relative;
   z-index: 3;
   text-align: center;
-  padding: 0 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding-bottom: 20px;
 }
 
 .logo {
-  width: 130px;
+  width: 270px;
   height: auto;
-  margin-bottom: 12px;
+  filter: drop-shadow(0 0 24px rgba(255,0,85,0.3));
 }
 
 .heroCenterText h2 {
-  font-size: 48px;
+  font-size: 52px;
   font-weight: 800;
-  line-height: 1.1;
+  line-height: 1.05;
   margin: 0;
-  letter-spacing: -2px;
-  text-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  letter-spacing: -2.5px;
 }
 
 .heroCenterText h2 span {
   color: var(--accent);
 }
 
-/* Scroll hint */
 .heroScroll {
   position: relative;
   z-index: 3;
-  font-size: 22px;
-  opacity: 0.4;
-  animation: bounce 2s infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  font-size: 16px;
+  color: var(--text-muted);
+  animation: floatDown 2.2s ease-in-out infinite;
 }
 
-@keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50%       { transform: translateY(6px); }
+@keyframes floatDown {
+  0%, 100% { transform: translateY(0); opacity: 0.5; }
+  50%       { transform: translateY(5px); opacity: 1; }
 }
 
-/* ════════════════════════════
-   BENTO GRID
-════════════════════════════ */
+/* ═══════════════════════
+   SHOWCASE
+═══════════════════════ */
 .showcaseContainer {
-  max-width: 1300px;
-  margin: 0 auto;
-  padding: 32px 16px 80px;
+  width: 100%;
+  padding: 24px 14px 60px;
 }
 
-/* Desktop: 4-column grid */
+/* ── Desktop 4-col ── */
 .bentoGrid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-auto-rows: 180px;
-  gap: 16px;
+  gap: 14px;
 }
 
 .bentoItem {
   background: var(--glass);
   border: 1px solid var(--border);
-  border-radius: 24px;
+  border-radius: var(--radius-lg);
   overflow: hidden;
   position: relative;
-  transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
-              border-color 0.3s ease,
-              box-shadow 0.3s ease;
+  transition: transform 0.4s cubic-bezier(0.2,0.8,0.2,1), border-color 0.3s, box-shadow 0.3s;
 }
 
 .bentoItem:hover {
-  transform: scale(1.02);
-  border-color: rgba(255, 0, 85, 0.35);
-  box-shadow: 0 20px 40px rgba(255, 0, 85, 0.1);
+  transform: scale(1.025);
+  border-color: rgba(255,0,85,0.3);
+  box-shadow: 0 16px 40px rgba(255,0,85,0.08);
 }
 
-.bentoItem.largePhoto {
-  grid-column: span 2;
-  grid-row: span 2;
-}
-
-.bentoItem.tallPhoto {
-  grid-column: span 1;
-  grid-row: span 2;
-}
+.bentoItem.largePhoto { grid-column: span 2; grid-row: span 2; }
+.bentoItem.tallPhoto  { grid-column: span 1; grid-row: span 2; }
 
 .bentoItem img.fullImg {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.6s ease;
   display: block;
+  transition: transform 0.6s ease;
 }
-
-.bentoItem:hover img.fullImg {
-  transform: scale(1.05);
-}
+.bentoItem:hover img.fullImg { transform: scale(1.05); }
 
 /* Instrument cards */
 .bentoItem.instrumentBox {
-  grid-column: span 1;
-  grid-row: span 1;
   display: flex;
   align-items: center;
-  gap: 16px;
-  padding: 20px;
-  background: linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%);
+  gap: 14px;
+  padding: 18px;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .instrumentBox .thumb {
-  width: 62px;
-  height: 62px;
-  border-radius: 16px;
+  width: 58px;
+  height: 58px;
+  border-radius: 14px;
   object-fit: cover;
   flex-shrink: 0;
 }
 
-.instrumentInfo {
-  flex: 1;
-  min-width: 0;
-}
+.instrumentInfo { flex: 1; min-width: 0; }
 
 .instrumentInfo h3 {
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 700;
   margin: 0;
   text-transform: uppercase;
   letter-spacing: 1px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .instrumentInfo p {
   font-size: 12px;
-  color: #8a8f9e;
-  margin: 4px 0 0 0;
+  color: var(--text-muted);
+  margin: 3px 0 0;
 }
 
 .arrowIcon {
-  font-size: 18px;
+  font-size: 16px;
   color: var(--accent);
   opacity: 0;
-  transform: translateX(-6px);
-  transition: opacity 0.25s ease, transform 0.25s ease;
+  transform: translateX(-4px);
+  transition: opacity 0.25s, transform 0.25s;
   flex-shrink: 0;
 }
-
-.bentoItem.instrumentBox:hover .arrowIcon {
+.instrumentBox:hover .arrowIcon {
   opacity: 1;
   transform: translateX(0);
 }
 
 /* Text card */
 .bentoItem.textCard {
-  grid-column: span 1;
-  grid-row: span 1;
   padding: 24px;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-
 .textCard h4 {
   margin: 0;
   font-size: 20px;
   font-weight: 800;
   color: var(--accent);
 }
-
 .textCard p {
-  margin: 6px 0 0 0;
+  margin: 6px 0 0;
   font-size: 13px;
-  color: #8a8f9e;
+  color: var(--text-muted);
   line-height: 1.5;
 }
 
-/* ════════════════════════════
+/* ═══════════════════════
    SOCIALS
-════════════════════════════ */
+═══════════════════════ */
 .socialsSection {
-  padding: 0 16px 80px;
-  max-width: 1300px;
-  margin: 0 auto;
+  width: 100%;
+  padding: 0 14px 80px;
 }
 
 .socialsLabel {
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 4px;
-  color: #8a8f9e;
-  margin: 0 0 20px 4px;
+  color: var(--text-muted);
+  margin: 0 0 14px 2px;
 }
 
 .socialsGrid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .socialCard {
   display: flex;
   align-items: center;
   gap: 14px;
-  padding: 16px 18px;
+  padding: 14px 16px;
   background: var(--glass);
   border: 1px solid var(--border);
-  border-radius: 20px;
-  transition: transform 0.35s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
+  border-radius: var(--radius-md);
+  transition: transform 0.3s ease, border-color 0.3s, background 0.3s;
   position: relative;
   overflow: hidden;
+  -webkit-tap-highlight-color: transparent;
 }
 
-.socialCard::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(255,0,85,0.06) 0%, transparent 70%);
-  opacity: 0;
-  transition: opacity 0.3s ease;
+.socialCard:active {
+  transform: scale(0.98);
+  background: var(--accent-dim);
+  border-color: rgba(255,0,85,0.25);
 }
 
-.socialCard:hover {
-  transform: translateY(-4px);
-  border-color: rgba(255, 0, 85, 0.3);
-  box-shadow: 0 16px 32px rgba(255, 0, 85, 0.1);
-}
-
-.socialCard:hover::before {
-  opacity: 1;
+@media (hover: hover) {
+  .socialCard:hover {
+    transform: translateX(4px);
+    border-color: rgba(255,0,85,0.25);
+    background: rgba(255,0,85,0.05);
+  }
+  .socialCard:hover .socialArrow {
+    opacity: 1;
+    transform: translate(0,0);
+    color: var(--accent);
+  }
 }
 
 .socialImgWrap {
-  width: 48px;
-  height: 48px;
-  border-radius: 14px;
+  width: 46px;
+  height: 46px;
+  border-radius: 13px;
   overflow: hidden;
   flex-shrink: 0;
   border: 1px solid var(--border);
 }
-
 .socialImgWrap img {
   width: 100%;
   height: 100%;
@@ -346,159 +325,116 @@ a {
 .socialInfo {
   display: flex;
   flex-direction: column;
+  flex: 1;
   min-width: 0;
 }
-
 .socialName {
   font-size: 15px;
   font-weight: 700;
   color: #fff;
 }
-
 .socialHandle {
   font-size: 12px;
-  color: #8a8f9e;
+  color: var(--text-muted);
   margin-top: 2px;
-  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .socialArrow {
-  margin-left: auto;
-  font-size: 16px;
-  color: var(--accent);
-  opacity: 0;
-  transform: translate(-4px, 4px);
-  transition: opacity 0.25s ease, transform 0.25s ease;
+  font-size: 18px;
+  color: var(--text-muted);
   flex-shrink: 0;
+  opacity: 0.4;
+  transition: opacity 0.25s, transform 0.25s, color 0.25s;
 }
 
-.socialCard:hover .socialArrow {
-  opacity: 1;
-  transform: translate(0, 0);
-}
-
-/* ════════════════════════════
-   TABLET  (max 900px)
-════════════════════════════ */
+/* ═══════════════════════
+   TABLET  ≤ 900px
+═══════════════════════ */
 @media (max-width: 900px) {
   .bentoGrid {
     grid-template-columns: repeat(2, 1fr);
     grid-auto-rows: 160px;
-    gap: 12px;
   }
-
-  /* Reset all spans so everything fits 2-col nicely */
-  .bentoItem.largePhoto,
-  .bentoItem.tallPhoto {
-    grid-column: span 2;
-    grid-row: span 2;
-  }
-
-  .bentoItem.instrumentBox,
-  .bentoItem.textCard {
-    grid-column: span 1;
-    grid-row: span 1;
-  }
-
-  .socialsGrid {
-    grid-template-columns: repeat(3, 1fr);
-  }
+  .bentoItem.largePhoto { grid-column: span 2; grid-row: span 2; }
+  .bentoItem.tallPhoto  { grid-column: span 1; grid-row: span 2; }
+  .bentoItem.textCard   { grid-column: span 2; }
 }
 
-/* ════════════════════════════
-   MOBILE  (max 600px)
-════════════════════════════ */
-@media (max-width: 600px) {
+/* ═══════════════════════
+   MOBILE  ≤ 480px
+═══════════════════════ */
+@media (max-width: 480px) {
   /* Hero */
-  .heroSection {
-    height: 90vh;
-    padding: 16px 12px;
-  }
-
   .heroCenterText h2 {
-    font-size: 36px;
-    letter-spacing: -1px;
+    font-size: 40px;
+    letter-spacing: -1.5px;
   }
+  .logo { width: 88px; }
+  .mainTitle { font-size: 12px; letter-spacing: 2px; }
 
-  .logo {
-    width: 100px;
-  }
-
-  .mainTitle {
-    font-size: 13px;
-    letter-spacing: 2px;
-  }
-
-  /* Bento: full-width single column for photos, 2-col for instruments */
-  .showcaseContainer {
-    padding: 24px 12px 60px;
-  }
+  /* Grid */
+  .showcaseContainer { padding: 20px 12px 50px; }
 
   .bentoGrid {
     grid-template-columns: repeat(2, 1fr);
-    grid-auto-rows: 140px;
+    grid-auto-rows: 130px;
     gap: 10px;
   }
 
-  .bentoItem.largePhoto {
-    grid-column: span 2;
-    grid-row: span 2;
-  }
+  /* Photos */
+  .bentoItem.largePhoto { grid-column: span 2; grid-row: span 2; }
+  .bentoItem.tallPhoto  { grid-column: span 1; grid-row: span 2; }
 
-  .bentoItem.tallPhoto {
-    grid-column: span 1;
-    grid-row: span 2;
-  }
-
+  /* Instrument cards — full width, horizontal pill */
   .bentoItem.instrumentBox {
-    grid-column: span 1;
-    grid-row: span 1;
-    padding: 14px;
-    gap: 10px;
-  }
-
-  .bentoItem.textCard {
     grid-column: span 2;
     grid-row: span 1;
-    padding: 18px;
+    border-radius: var(--radius-md);
+    padding: 16px 18px;
+    gap: 16px;
   }
 
   .instrumentBox .thumb {
-    width: 50px;
-    height: 50px;
+    width: 52px;
+    height: 52px;
     border-radius: 12px;
   }
 
-  .instrumentInfo h3 {
-    font-size: 13px;
-  }
+  .instrumentInfo h3 { font-size: 15px; }
+  .instrumentInfo p  { font-size: 12px; }
 
-  .instrumentInfo p {
-    font-size: 11px;
-  }
-
+  /* Always show arrow on mobile */
   .arrowIcon {
-    display: none; /* hidden on small screens to save space */
-  }
-
-  /* Socials: stack to single column on small phones */
-  .socialsSection {
-    padding: 0 12px 60px;
-  }
-
-  .socialsGrid {
-    grid-template-columns: 1fr;
-    gap: 10px;
-  }
-
-  .socialCard {
-    padding: 14px 16px;
-  }
-
-  .socialArrow {
-    opacity: 1;
+    opacity: 0.6;
     transform: none;
+    display: block;
+    font-size: 18px;
   }
+
+  /* Text card */
+  .bentoItem.textCard {
+    grid-column: span 2;
+    border-radius: var(--radius-md);
+    padding: 20px;
+  }
+  .textCard h4 { font-size: 18px; }
+
+  /* Socials */
+  .socialsSection { padding: 0 12px 64px; }
+  .socialCard { padding: 14px 14px; }
+  .socialArrow { opacity: 1; }
+}
+
+/* ═══════════════════════
+   VERY SMALL  ≤ 360px
+═══════════════════════ */
+@media (max-width: 360px) {
+  .heroCenterText h2 { font-size: 34px; }
+  .logo { width: 72px; }
+  .bentoGrid { grid-auto-rows: 115px; gap: 8px; }
+  .instrumentBox .thumb { width: 44px; height: 44px; }
+  .instrumentInfo h3 { font-size: 13px; }
 }

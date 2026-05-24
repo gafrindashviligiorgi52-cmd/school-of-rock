@@ -5,61 +5,83 @@ import { Link } from 'react-router-dom'
 import guitarPhoto from '../assets/images/guitarPhoto.png'
 import bassPhoto from '../assets/images/bassPhoto.png'
 import drumsPhoto from '../assets/images/drumsPhoto.png'
-
 import photo1 from '../assets/revalimages/photo1.png'
 import photo2 from '../assets/revalimages/photo2.png'
 import bigPhoto from '../assets/revalimages/bigPhoto.png'
 import bigPhoto2 from '../assets/revalimages/bigPhoto2.png'
-
 import tiktok from '../assets/mediaphotos/tiktok.webp'
 import facebook from '../assets/mediaphotos/facebook.png'
 import instagram from '../assets/mediaphotos/instagram.jpeg'
 
+const SOCIALS = [
+  {
+    href: 'https://www.instagram.com/rockschool.ge/',
+    img: instagram,
+    name: 'Instagram',
+    handle: '@rockschool.ge',
+    alt: 'Instagram',
+  },
+  {
+    href: 'https://www.tiktok.com/@rockschoolge',
+    img: tiktok,
+    name: 'TikTok',
+    handle: '@rockschoolge',
+    alt: 'TikTok',
+  },
+  {
+    href: 'https://www.facebook.com/profile.php?id=100092001915473',
+    img: facebook,
+    name: 'Facebook',
+    handle: 'School of Rock',
+    alt: 'Facebook',
+  },
+]
+
 export default function Home() {
   return (
     <>
-      {/* ─── HERO ─── */}
+      {/* ── HERO ── */}
       <header className="heroSection">
-        <img className="heroBg" src={bandPhoto} alt="Live Stage Background" />
+        <img className="heroBg" src={bandPhoto} alt="" aria-hidden="true" />
 
         <div className="headerGlass">
           <h1 className="mainTitle">School of Rock</h1>
         </div>
 
         <div className="heroCenterText">
-          <img src={pfp} alt="School of Rock Icon" className="logo" />
-          <h2>This is<br />School of <span>Rock</span></h2>
+          <img src={pfp} alt="School of Rock" className="logo" />
+          <h2>
+            This is<br />School of <span>Rock</span>
+          </h2>
         </div>
 
-        <div className="heroScroll">
-          <span>↓</span>
-        </div>
+        <div className="heroScroll" aria-hidden="true">↓</div>
       </header>
 
-      {/* ─── BENTO GRID ─── */}
+      {/* ── BENTO GRID ── */}
       <section className="showcaseContainer">
         <div className="bentoGrid">
 
           <div className="bentoItem largePhoto">
-            <img className="fullImg" src={bigPhoto2} alt="Band Live 1" />
+            <img className="fullImg" src={bigPhoto2} alt="Band performing live" />
           </div>
 
           <Link to="/guitar" className="bentoItem instrumentBox">
-            <img className="thumb" src={guitarPhoto} alt="Guitar" />
+            <img className="thumb" src={guitarPhoto} alt="" aria-hidden="true" />
             <div className="instrumentInfo">
               <h3>გიტარა</h3>
               <p>ნიკო, ლევანი</p>
             </div>
-            <span className="arrowIcon">→</span>
+            <span className="arrowIcon" aria-hidden="true">→</span>
           </Link>
 
           <Link to="/bass" className="bentoItem instrumentBox">
-            <img className="thumb" src={bassPhoto} alt="Bass" />
+            <img className="thumb" src={bassPhoto} alt="" aria-hidden="true" />
             <div className="instrumentInfo">
               <h3>ბასი</h3>
               <p>ნოე</p>
             </div>
-            <span className="arrowIcon">→</span>
+            <span className="arrowIcon" aria-hidden="true">→</span>
           </Link>
 
           <div className="bentoItem textCard">
@@ -68,83 +90,51 @@ export default function Home() {
           </div>
 
           <Link to="/drums" className="bentoItem instrumentBox">
-            <img className="thumb" src={drumsPhoto} alt="Drums" />
+            <img className="thumb" src={drumsPhoto} alt="" aria-hidden="true" />
             <div className="instrumentInfo">
               <h3>დრამი</h3>
               <p>ამიკო</p>
             </div>
-            <span className="arrowIcon">→</span>
+            <span className="arrowIcon" aria-hidden="true">→</span>
           </Link>
 
           <div className="bentoItem tallPhoto">
-            <img className="fullImg" src={photo1} alt="Band Live 2" />
+            <img className="fullImg" src={photo1} alt="Band live" />
           </div>
 
           <div className="bentoItem tallPhoto">
-            <img className="fullImg" src={photo2} alt="Band Live 3" />
+            <img className="fullImg" src={photo2} alt="Band live" />
           </div>
 
           <div className="bentoItem largePhoto">
-            <img className="fullImg" src={bigPhoto} alt="Band Live 4" />
+            <img className="fullImg" src={bigPhoto} alt="Band live" />
           </div>
 
         </div>
       </section>
 
-      {/* ─── SOCIALS ─── */}
+      {/* ── SOCIALS ── */}
       <section className="socialsSection">
         <p className="socialsLabel">გამოგვყევი</p>
-
         <div className="socialsGrid">
-
-          <a
-            href="https://www.instagram.com/rockschool.ge/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="socialCard"
-          >
-            <div className="socialImgWrap">
-              <img src={instagram} alt="Instagram" />
-            </div>
-            <div className="socialInfo">
-              <span className="socialName">Instagram</span>
-              <span className="socialHandle">@rockschool.ge</span>
-            </div>
-            <span className="socialArrow">↗</span>
-          </a>
-
-          <a
-            href="https://www.tiktok.com/@rockschoolge"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="socialCard"
-          >
-            <div className="socialImgWrap">
-              <img src={tiktok} alt="TikTok" />
-            </div>
-            <div className="socialInfo">
-              <span className="socialName">TikTok</span>
-              <span className="socialHandle">@rockschoolge</span>
-            </div>
-            <span className="socialArrow">↗</span>
-          </a>
-
-          <a
-            href="https://www.facebook.com/profile.php?id=100092001915473"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="socialCard"
-          >
-            <div className="socialImgWrap">
-              <img src={facebook} alt="Facebook" />
-            </div>
-            <div className="socialInfo">
-              <span className="socialName">Facebook</span>
-              <span className="socialHandle">School of Rock</span>
-            </div>
-            <span className="socialArrow">↗</span>
-          </a>
-
+          {SOCIALS.map(({ href, img, name, handle, alt }) => (
+            <a
+              key={name}
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="socialCard"
+            >
+              <div className="socialImgWrap">
+                <img src={img} alt={alt} />
+              </div>
+              <div className="socialInfo">
+                <span className="socialName">{name}</span>
+                <span className="socialHandle">{handle}</span>
+              </div>
+              <span className="socialArrow" aria-hidden="true">↗</span>
+            </a>
+          ))}
         </div>
       </section>
     </>
