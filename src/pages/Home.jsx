@@ -1,10 +1,7 @@
 import '../pagescss/Homec.css'
 import pfp from '../assets/images/logo.png'
 import bandPhoto from '../assets/images/bandsetup.png'
-import { Routes, Route, Link } from 'react-router-dom'
-import Guitar from './Guitar.jsx'
-import Bass from './Bass.jsx'
-import Drums from './Drums.jsx'
+import { Link } from 'react-router-dom'
 import guitarPhoto from '../assets/images/guitarPhoto.png'
 import bassPhoto from '../assets/images/bassPhoto.png'
 import drumsPhoto from '../assets/images/drumsPhoto.png'
@@ -18,13 +15,15 @@ import tiktok from '../assets/mediaphotos/tiktok.webp'
 import facebook from '../assets/mediaphotos/facebook.png'
 import instagram from '../assets/mediaphotos/instagram.jpeg'
 
- export default function Home() {
+export default function Home() {
   return (
     <>
+      {/* ─── HERO ─── */}
       <header className="heroSection">
         <img className="heroBg" src={bandPhoto} alt="Live Stage Background" />
 
         <div className="headerGlass">
+          <img src={pfp} alt="Logo" className="headerLogo" />
           <h1 className="mainTitle">School of Rock</h1>
         </div>
 
@@ -33,9 +32,12 @@ import instagram from '../assets/mediaphotos/instagram.jpeg'
           <h2>This is<br />School of <span>Rock</span></h2>
         </div>
 
-        <div></div>
+        <div className="heroScroll">
+          <span>↓</span>
+        </div>
       </header>
 
+      {/* ─── BENTO GRID ─── */}
       <section className="showcaseContainer">
         <div className="bentoGrid">
 
@@ -43,22 +45,22 @@ import instagram from '../assets/mediaphotos/instagram.jpeg'
             <img className="fullImg" src={bigPhoto2} alt="Band Live 1" />
           </div>
 
-          {/* ✅ Guitar — ლინკი */}
           <Link to="/guitar" className="bentoItem instrumentBox">
-            <img className="thumb" src={guitarPhoto} alt="Guitar look" />
+            <img className="thumb" src={guitarPhoto} alt="Guitar" />
             <div className="instrumentInfo">
               <h3>გიტარა</h3>
               <p>ნიკო, ლევანი</p>
             </div>
+            <span className="arrowIcon">→</span>
           </Link>
 
-          {/* ✅ Bass — ლინკი */}
           <Link to="/bass" className="bentoItem instrumentBox">
-            <img className="thumb" src={bassPhoto} alt="Bass look" />
+            <img className="thumb" src={bassPhoto} alt="Bass" />
             <div className="instrumentInfo">
-              <h3>ბასი </h3>
+              <h3>ბასი</h3>
               <p>ნოე</p>
             </div>
+            <span className="arrowIcon">→</span>
           </Link>
 
           <div className="bentoItem textCard">
@@ -66,13 +68,13 @@ import instagram from '../assets/mediaphotos/instagram.jpeg'
             <p>გაჟღერებული ემოციები და სუფთა როკ ენ როლი.</p>
           </div>
 
-          {/* ✅ Drums — ლინკი */}
           <Link to="/drums" className="bentoItem instrumentBox">
-            <img className="thumb" src={drumsPhoto} alt="Drums look" />
+            <img className="thumb" src={drumsPhoto} alt="Drums" />
             <div className="instrumentInfo">
               <h3>დრამი</h3>
               <p>ამიკო</p>
             </div>
+            <span className="arrowIcon">→</span>
           </Link>
 
           <div className="bentoItem tallPhoto">
@@ -90,30 +92,62 @@ import instagram from '../assets/mediaphotos/instagram.jpeg'
         </div>
       </section>
 
-      <div className="socials">
+      {/* ─── SOCIALS ─── */}
+      <section className="socialsSection">
+        <p className="socialsLabel">გამოგვყევი</p>
 
-        <Link to="https://www.instagram.com/rockschool.ge/">
-      <div className="instagram">
-      <img src={instagram} alt="" />
-      <p>Instagram</p>
+        <div className="socialsGrid">
+
+          <a
+            href="https://www.instagram.com/rockschool.ge/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="socialCard"
+          >
+            <div className="socialImgWrap">
+              <img src={instagram} alt="Instagram" />
+            </div>
+            <div className="socialInfo">
+              <span className="socialName">Instagram</span>
+              <span className="socialHandle">@rockschool.ge</span>
+            </div>
+            <span className="socialArrow">↗</span>
+          </a>
+
+          <a
+            href="https://www.tiktok.com/@rockschoolge"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="socialCard"
+          >
+            <div className="socialImgWrap">
+              <img src={tiktok} alt="TikTok" />
+            </div>
+            <div className="socialInfo">
+              <span className="socialName">TikTok</span>
+              <span className="socialHandle">@rockschoolge</span>
+            </div>
+            <span className="socialArrow">↗</span>
+          </a>
+
+          <a
+            href="https://www.facebook.com/profile.php?id=100092001915473"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="socialCard"
+          >
+            <div className="socialImgWrap">
+              <img src={facebook} alt="Facebook" />
+            </div>
+            <div className="socialInfo">
+              <span className="socialName">Facebook</span>
+              <span className="socialHandle">School of Rock</span>
+            </div>
+            <span className="socialArrow">↗</span>
+          </a>
+
         </div>
-        </Link>
-
-        <Link to="https://www.tiktok.com/@rockschoolge">
-          <div className="TikTok">
-            <img src={tiktok} alt="" className="tiktok" />
-            <p>tiktok</p>
-          </div>
-        </Link>
-
-        <Link to="https://www.facebook.com/profile.php?id=100092001915473">
-          <div className="facebook">
-            <img src={facebook} alt="" />
-            <p>Facebook</p>
-          </div>
-        </Link>
-      </div>
-
+      </section>
     </>
   )
 }
