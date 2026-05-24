@@ -23,7 +23,6 @@ export default function Home() {
         <img className="heroBg" src={bandPhoto} alt="Live Stage Background" />
 
         <div className="headerGlass">
-          <img src={pfp} alt="Logo" className="headerLogo" />
           <h1 className="mainTitle">School of Rock</h1>
         </div>
 
