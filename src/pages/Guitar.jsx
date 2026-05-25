@@ -20,9 +20,12 @@ export default function Guitar() {
       {/* მინიმალისტური ტექსტის სექცია */}
       <div className='info-section'>
         <h1>გიტარა</h1>
-        <h1>ნიკო<br/>მანტიძე</h1>
-        <h2>Band: <strong>ლინკი</strong></h2>
-        <h2>instagram: <strong>ლინკი</strong></h2>
+        <h1>ნიკო<br/>მანთიძე</h1>
+        <h2>instagram: 
+          <Link to="https://www.instagram.com/nmantidze/" target="_blank" rel="noopener noreferrer">
+             გადასვლა
+          </Link>
+          </h2>
 
         {/* მეორე მასწავლებელზე გადასვლა */}
         <Link to="/guitar2" style={{ textDecoration: 'none' }}>

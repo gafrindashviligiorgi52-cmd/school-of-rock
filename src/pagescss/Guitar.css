@@ -134,6 +134,14 @@ button.next-btn:hover {
   font-weight: 600;
 }
 
+a {
+  color: #ff4757;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+a:hover {
+  color: #ff6b81;
+}
 @media (max-width: 1024px) {
   .flex-container {
     flex-direction: column;

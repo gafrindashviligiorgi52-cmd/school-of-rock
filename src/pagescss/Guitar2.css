@@ -134,6 +134,16 @@ button.next-btn-2:hover {
   transform: scale(1.05);
 }
 
+a {
+  color: #ff4757;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #ff6b81;
+}
+
 /* --- მობილურის ადაპტაცია --- */
 @media (max-width: 1024px) {
   .flex-container-2 {

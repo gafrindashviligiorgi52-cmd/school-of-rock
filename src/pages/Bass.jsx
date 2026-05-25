@@ -22,8 +22,11 @@ export default function Bass() {
         <h1>ბასი</h1>
         <h1>ნოე<br/>გაბაშვილი</h1> {/* <br/> დაგვეხმარება დიდ შრიფტზე */}
         {/* <hr /> - HR ამოღებულია CSS-ით */}
-        <h2>Band: <strong>ლინკი</strong></h2>
-        <h2>instagram: <strong>ლინკი</strong></h2>
+        <h2>instagram:
+          <Link to="https://www.instagram.com/noegabashvili/" target="_blank" rel="noopener noreferrer">
+            გადასვლა
+          </Link>
+        </h2>
 
       </div>
     </div>
